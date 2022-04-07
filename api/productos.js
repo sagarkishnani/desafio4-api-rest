@@ -13,7 +13,7 @@ class ProductosApi {
     return this.productos;
   }
 
-  guardar(title, price, thumbnail) {
+  guardar({ title, price, thumbnail }) {
     const producto = {
       id: this.productos.length + 1,
       title: title,
@@ -23,7 +23,7 @@ class ProductosApi {
     this.productos.push(producto);
   }
 
-  actualizar(title, price, thumbnail, id) {
+  actualizar({ title, price, thumbnail }, id) {
     const idProducto = this.productos.find((x) => x.id === id);
     const producto = {
       id: idProducto,

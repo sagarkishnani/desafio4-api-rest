@@ -35,7 +35,8 @@ app.post("/api/productos", (req, res) => {
 
 app.put("/api/productos/:id", (req, res) => {
   const id = parseInt(req.params.id);
-  res.send(productosApi.actualizar(id));
+  const producto = req.body;
+  res.send(productosApi.actualizar(id, producto));
 });
 
 app.delete("/api/productos/:id", (req, res) => {
