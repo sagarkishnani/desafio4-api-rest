@@ -24,14 +24,16 @@ class ProductosApi {
   }
 
   actualizar({ title, price, thumbnail }, id) {
-    const idProducto = this.productos.find((x) => x.id === id);
     const producto = {
-      id: idProducto,
+      id: id,
       title: title,
       price: price,
       thumbnail: thumbnail,
     };
-    return producto;
+
+    const foundIndex = this.productos.findIndex((x) => x.id == producto.id);
+    this.productos[foundIndex] = producto;
+    return this.productos;
   }
 
   borrar(id) {
